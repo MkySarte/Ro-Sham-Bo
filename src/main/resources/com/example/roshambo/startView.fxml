@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.roshambo.StartControler">
+   <children>
+      <Pane prefHeight="1000.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="1000.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@landscape/fight.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="200.0" prefWidth="1000.0" text="Ro-Sham-Bo">
+               <font>
+                  <Font name="Darumadrop One Regular" size="48.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="166.0" layoutY="433.0" prefHeight="70.0" prefWidth="664.0" text="Gib hier dein namen ein:">
+               <font>
+                  <Font name="Darumadrop One Regular" size="48.0" />
+               </font>
+            </Label>
+            <TextField fx:id="namenField" layoutX="166.0" layoutY="517.0" prefHeight="81.0" prefWidth="664.0" promptText="test">
+               <font>
+                  <Font name="Darumadrop One Regular" size="24.0" />
+               </font>
+            </TextField>
+            <Button fx:id="rangliste" onAction="#zeigeRangliste" layoutX="286.0" layoutY="648.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="142.0" text="Rangliste">
+               <font>
+                  <Font name="Darumadrop One Regular" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="rdy" layoutX="584.0" layoutY="648.0" mnemonicParsing="false" onAction="#rdyToPlay" prefHeight="39.0" prefWidth="96.0" text="O.K">
+               <font>
+                  <Font name="Darumadrop One Regular" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="zweiteSeite" prefHeight="1000.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="1000.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@landscape/fight.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="200.0" prefWidth="1000.0" text="Ro-Sham-Bo">
+               <font>
+                  <Font name="Darumadrop One Regular" size="48.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="284.0" fitWidth="148.0" layoutX="444.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@character/papier.png" />
+               </image></ImageView>
+            <Button fx:id="weiter2" layoutX="837.0" layoutY="921.0" mnemonicParsing="false" onAction="#nxt2" prefHeight="39.0" prefWidth="96.0" text="Weiter">
+               <font>
+                  <Font name="Darumadrop One Regular" size="18.0" />
+               </font></Button>
+            <ImageView fitHeight="200.0" fitWidth="148.0" layoutX="588.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@icon/Curved-Arrow-PNG-Background-Image.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="142.0" fitWidth="148.0" layoutX="284.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true" rotate="90.0" y="-14.0">
+               <image>
+                  <Image url="@icon/Curved-Arrow-PNG-Background-Image.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="182.0" layoutX="409.0" layoutY="662.0" pickOnBounds="true" preserveRatio="true" rotate="-40.0" y="-14.0">
+               <image>
+                  <Image url="@icon/Curved-Arrow-PNG-Background-Image.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="465.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Papier">
+               <font>
+                  <Font name="Darumadrop One Regular" size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="278.0" layoutY="802.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stein">
+               <font>
+                  <Font name="Darumadrop One Regular" size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="662.0" layoutY="802.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schere" wrappingWidth="110.14800262451172">
+               <font>
+                  <Font name="Darumadrop One Regular" size="36.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="396.0" fitWidth="271.0" layoutX="582.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@character/schere.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="307.0" fitWidth="255.0" layoutX="167.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@character/stein.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="ersteSeite" prefHeight="1000.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="1000.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@landscape/fight.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="200.0" prefWidth="1000.0" text="Ro-Sham-Bo">
+               <font>
+                  <Font name="Darumadrop One Regular" size="48.0" />
+               </font>
+            </Label>
+            <Button fx:id="weiter1" layoutX="838.0" layoutY="923.0" mnemonicParsing="false" onAction="#nxt1" prefHeight="39.0" prefWidth="96.0" text="Weiter">
+               <font>
+                  <Font name="Darumadrop One Regular" size="18.0" />
+               </font>
+            </Button>
+            <Text layoutX="28.0" layoutY="246.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Willkommen bei Ro-Sham-Bo!" textAlignment="CENTER" wrappingWidth="944.13671875">
+               <font>
+                  <Font name="Darumadrop One Regular" size="48.0" />
+               </font>
+            </Text>
+            <Text layoutX="28.0" layoutY="317.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entdecke die digitale Version des Klassikers Schere-Stein-Papier. Einfach zu spielen, schwer zu meistern!" textAlignment="CENTER" wrappingWidth="944.13671875">
+               <font>
+                  <Font name="Darumadrop One Regular" size="48.0" />
+               </font>
+            </Text>
+            <Text layoutX="28.0" layoutY="720.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Die klassischen Regeln bleiben: Schere schneidet Papier, Papier umwickelt Stein, Stein zerschmettert Schere." textAlignment="CENTER" wrappingWidth="944.13671875">
+               <font>
+                  <Font name="Darumadrop One Regular" size="48.0" />
+               </font>
+            </Text>
+            <Text layoutX="28.0" layoutY="526.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="So geht's: Wähle dein Symbol – Schere, Stein oder Papier – und fordere den Computer  heraus." textAlignment="CENTER" wrappingWidth="944.13671875">
+               <font>
+                  <Font name="Darumadrop One Regular" size="48.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
