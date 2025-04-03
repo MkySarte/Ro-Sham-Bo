@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-
     @Override
     public void start(Stage stage) throws IOException {
        // ImageIcon icon = new ImageIcon(Main.class.getResource("com/example/roshambo/character/schere.png"));

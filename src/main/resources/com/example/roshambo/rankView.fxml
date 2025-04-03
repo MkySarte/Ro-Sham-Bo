@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="1000" prefWidth="1000" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.roshambo.Rankliste">
+<AnchorPane prefHeight="1000" prefWidth="1000" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.roshambo.Rankliste">
    <children>
       <Pane prefHeight="1000.0" prefWidth="1000.0">
          <children>
@@ -17,17 +21,24 @@
             </ImageView>
             <TableView fx:id="rankTable" layoutX="60.0" layoutY="187.0" opacity="0.62" prefHeight="784.0" prefWidth="635.0">
               <columns>
-                <TableColumn fx:id="colWins" prefWidth="196.0" text="Wins" />
-                <TableColumn fx:id="colPlayer" minWidth="0.0" prefWidth="277.0" text="Player" />
+                <TableColumn fx:id="colWins" prefWidth="196.0" text="Wins"/>
+
+                <TableColumn fx:id="colPlayer" minWidth="0.0" prefWidth="437.33331298828125" text="Player" />
               </columns>
             </TableView>
-            <Label alignment="CENTER" layoutX="60.0" layoutY="33.0" prefHeight="110.0" prefWidth="872.0" text="RANKLIST">
+            <Label alignment="CENTER" layoutX="60.0" layoutY="33.0" prefHeight="110.0" prefWidth="872.0" text="RANGLISTE">
                <font>
-                  <Font size="48.0" />
+                  <Font name="Darumadrop One Regular" size="73.0" />
                </font>
             </Label>
-            <Button fx:id="playButton" onAction="#onPlayClicked" layoutX="748.0" layoutY="212.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="197.0" text="Spielen" />
-            <Button fx:id="exitButton" onAction="#onExitClicked" layoutX="748.0" layoutY="286.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="197.0" text="Beenden"/>
+            <Button fx:id="playButton" layoutX="748.0" layoutY="212.0" mnemonicParsing="false" onAction="#onPlayClicked" prefHeight="53.0" prefWidth="197.0" text="Spielen">
+               <font>
+                  <Font name="Darumadrop One Regular" size="24.0" />
+               </font></Button>
+            <Button fx:id="exitButton" layoutX="748.0" layoutY="286.0" mnemonicParsing="false" onAction="#onExitClicked" prefHeight="53.0" prefWidth="197.0" text="Beenden">
+               <font>
+                  <Font name="Darumadrop One Regular" size="24.0" />
+               </font></Button>
          </children>
       </Pane>
    </children>

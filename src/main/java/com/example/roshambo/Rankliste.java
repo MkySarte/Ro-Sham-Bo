@@ -4,12 +4,14 @@ import javafx.collections.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -26,14 +28,60 @@ public class Rankliste {
     @FXML private TableColumn<Player, String> colPlayer;
     @FXML private TableColumn<Player, Integer> colWins;
 
+
     //https://docs.oracle.com/javase/8/javafx/api/javafx/collections/ObservableList.html
     //Eine Liste, die es Zuhörern ermöglicht, Änderungen zu verfolgen, wenn sie auftreten
     private final ObservableList<Player> data = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
+        Font.loadFont(getClass().getResource("/com/example/roshambo/fonts/DarumadropOne-Regular.ttf").toExternalForm(), 12);
+
         colPlayer.setCellValueFactory(new PropertyValueFactory<>("name"));
         colWins.setCellValueFactory(new PropertyValueFactory<>("wins"));
+
+        // nur weil CSS für ultimate ist "Wins" so gesetzt
+        Label winsHeader = new Label("Wins");
+        winsHeader.setFont(Font.font("Darumadrop One", 24));
+        winsHeader.setAlignment(Pos.CENTER);
+        colWins.setText(null); // deaktiviert Standardtext
+        colWins.setGraphic(winsHeader);
+
+        // Spalte: Wins
+        colWins.setCellFactory(column -> new TableCell<Player, Integer>() {
+            @Override
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(String.valueOf(item));
+                    setFont(Font.font("Darumadrop One", 20));
+                    setAlignment(Pos.CENTER);
+                }
+            }
+        });
+
+        // nur weil CSS für ultimate ist "Player" so gesetzt
+        Label playerHeader = new Label("Player");
+        playerHeader.setFont(Font.font("Darumadrop One", 24));
+        playerHeader.setAlignment(Pos.CENTER);
+        colPlayer.setText(null);
+        colPlayer.setGraphic(playerHeader);
+
+        colPlayer.setCellFactory(column -> new TableCell<Player, String>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item);
+                    setFont(Font.font("Darumadrop One", 20));
+                    setAlignment(Pos.CENTER);
+                }
+            }
+        });
 
         ladeRanklist();
     }

@@ -20,7 +20,7 @@
                   <Font name="Darumadrop One Regular" size="48.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="166.0" layoutY="433.0" prefHeight="70.0" prefWidth="664.0" text="Gib hier dein namen ein:">
+            <Label alignment="CENTER" layoutX="166.0" layoutY="433.0" prefHeight="70.0" prefWidth="664.0" text="Gib hier dein Namen ein:">
                <font>
                   <Font name="Darumadrop One Regular" size="48.0" />
                </font>
