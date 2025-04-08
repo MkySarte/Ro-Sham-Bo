@@ -294,6 +294,8 @@ public class RoShamBo {
         p1ShakeTimeline.play();
     }
 
+
+    //nicht gelöscht vllt brauch ich das irgendwann noch
     /*private void pokeShake() {
         if (botPoke != null) {
             botPoke.stop(); // vorheriges Zittern beenden

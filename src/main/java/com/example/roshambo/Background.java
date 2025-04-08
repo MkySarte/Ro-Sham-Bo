@@ -1,5 +1,9 @@
 package com.example.roshambo;
-
+/*
+*
+* Hintergrund
+*
+* */
 import java.util.HashMap;
 import java.util.Map;
 

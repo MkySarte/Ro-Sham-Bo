@@ -1,8 +1,8 @@
 package com.example.roshambo;
 
 public class Player {
-    private String name;
-    private int wins;
+    private final String name;
+    private final int wins;
 
     public Player(String name, int wins) {
         this.name = name;

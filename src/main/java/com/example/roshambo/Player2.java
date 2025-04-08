@@ -1,5 +1,10 @@
 package com.example.roshambo;
-
+/*
+* Player 2
+* char schaut nach vorne
+*
+*
+* */
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,3 +1,9 @@
+/*
+* @Autor MkySarte
+*
+*
+* */
+
 package com.example.roshambo;
 
 import javafx.application.Application;
@@ -9,12 +15,14 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-       // ImageIcon icon = new ImageIcon(Main.class.getResource("com/example/roshambo/character/schere.png"));
+        //man muss hier den absuloten pfad nehmen
+       ImageIcon icon = new ImageIcon(Main.class.getResource("/com/example/roshambo/character/schere.png"));
 
         // Schriftart vor dem laden laden..xD
         Font.loadFont(getClass().getResourceAsStream("/com/example/roshambo/fonts/DarumadropOne-Regular.ttf"), 10);
@@ -24,7 +32,7 @@ public class Main extends Application {
         stage.setTitle("Ro-Sham-Bo");
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image(getClass().getResource("/com/example/roshambo/character/papier.png").toExternalForm()));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource("/com/example/roshambo/character/papier.png")).toExternalForm()));
 
         stage.show();
     }
