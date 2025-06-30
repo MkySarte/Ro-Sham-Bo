@@ -2,93 +2,131 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
     <artifactId>Ro-Sham-Bo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1</version>
     <name>Ro-Sham-Bo</name>
 
     <properties>
+        <!-- WICHTIG: Java 17 für JavaFX 17, hier wird Java 24 genutzt -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.10.2</junit.version>
-        <javafx.version>17.0.6</javafx.version>
+        <javafx.version>24</javafx.version>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
     </properties>
 
     <dependencies>
+        <!-- JavaFX: Controls -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+
+        <!-- JavaFX: FXML -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+
+        <!-- JavaFX: Graphics -->
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.11.0</version>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
+
+        <!-- JavaFX: Base (wird automatisch benutzt) -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Compiler -->
+            <!-- Maven Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>3.11.0</version>
                 <configuration>
-                    <source>23</source>
-                    <target>23</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
 
-            <!-- JavaFX Plugin (für Entwicklung) -->
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.8</version>
-                <configuration>
-                    <mainClass>com.example.roshambo.Main</mainClass>
-                </configuration>
-            </plugin>
-
-            <!-- FatJar Plugin für .jar mit JavaFX -->
+            <!-- Maven Shade Plugin: Baut die Fat Jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.4.1</version>
                 <executions>
                     <execution>
+                        <!-- Phase "package": Wird beim "mvn package" ausgeführt -->
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <!-- Keine dependencyReducedPom.xml erzeugen -->
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <!-- Dein gewünschter Dateiname: Ro-Sham-Bo-1.1.jar -->
+                            <finalName>Ro-Sham-Bo-1.1</finalName>
+                            <!-- Manifest wird auf deine Main-Klasse gesetzt -->
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>com.example.roshambo.Main</mainClass>
                                 </transformer>
                             </transformers>
+                            <!-- Plattform-Jars (win, mac, linux) ausschließen -->
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>org.openjfx:*:jar:win:*</exclude>
+                                    <exclude>org.openjfx:*:jar:mac:*</exclude>
+                                    <exclude>org.openjfx:*:jar:linux:*</exclude>
+                                </excludes>
+                            </artifactSet>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- JavaFX Maven Plugin für jlink -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <executions>
+                    <execution>
+                        <id>jlink-image</id>
+                        <goals>
+                            <goal>jlink</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Hier gibst du deine Hauptklasse an -->
+                    <mainClass>com.example.roshambo.Main</mainClass>
+                    <!-- Pfad zu deinen JavaFX-JMODs -->
+                    <jmodsPath>C:\Users\mky\javafx-jmods-24</jmodsPath>
+                    <!-- Optionen zum Aufräumen des Images (optional) -->
+                    <stripDebug>true</stripDebug>
+                    <noHeaderFiles>true</noHeaderFiles>
+                    <noManPages>true</noManPages>
+                    <!-- Name des Launchers -->
+                    <launcher>Ro-Sham-Bo-launcher</launcher>
+                    <!-- Name des erstellten Laufzeitimages -->
+                    <jlinkImageName>Ro-Sham-Bo-runtime</jlinkImageName>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
+
 </project>
