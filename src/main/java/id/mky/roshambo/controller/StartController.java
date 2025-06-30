@@ -14,4 +14,13 @@ public class StartController
    }
     public void nxt1(ActionEvent actionEvent) {
     }
+
+    public void zeigeRangliste(ActionEvent actionEvent) {
+    }
+
+    public void rdyToPlay(ActionEvent actionEvent) {
+    }
+
+    public void nxt2(ActionEvent actionEvent) {
+    }
 }
