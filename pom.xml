@@ -46,6 +46,13 @@
             <artifactId>javafx-base</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+        <!-- api + engine + parameterized-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.13.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

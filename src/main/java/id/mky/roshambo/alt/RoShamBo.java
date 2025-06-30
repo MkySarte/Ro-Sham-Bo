@@ -108,10 +108,10 @@
 //            if (url != null) {
 //                background.setImage(new Image(url.toExternalForm()));
 //            } else {
-//                System.out.println("⚠️ Bild nicht gefunden: " + bgPfad);
+//                System.out.println(" Bild nicht gefunden: " + bgPfad);
 //            }
 //        } else {
-//            System.out.println("⚠️ Kein Eintrag in bgListe für: " + pfad);
+//            System.out.println(" Kein Eintrag in bgListe für: " + pfad);
 //        }
 //
 //
