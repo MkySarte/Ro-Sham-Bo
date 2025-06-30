@@ -84,3 +84,7 @@ config.json
 *.db
 *.sqlite
 *.secret
+######################################
+# 🚀 IntelliJ Run Configs ignorieren
+######################################
+.idea/runConfigurations/
